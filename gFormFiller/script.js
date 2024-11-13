@@ -52,16 +52,18 @@ function simulateTyping(element, text) {
         const key = header.innerText.toLowerCase();
         const blank = element.querySelector(".whsOnd.zHQkBf");
         console.log(key);
-        if(fills.has(key)){
-            console.log(fills.get(key));
-            simulateTyping(blank,fills.get(key));
-        }
-        else {
-            for(const [k,val] of fills){
-                if(key.includes(k)){
-                    console.log(val);
-                    simulateTyping(blank,fills.get(k));
+        if(blank.value == ""){
+            if(fills.has(key)){
+                console.log(fills.get(key));
+                simulateTyping(blank,fills.get(key));
+            }
+            else {
+                for(const [k,val] of fills){
+                    if(key.includes(k)){
+                        console.log(val);
+                        simulateTyping(blank,fills.get(k));
 
+                    }
                 }
             }
         }
